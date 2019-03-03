@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 视口改成用户不可缩放 -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>乐淘分类</title>
+    <link rel="stylesheet" href="./lib/fontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./lib/mui/css/mui.css">
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./lib/swiper/css/swiper.css">
+    <link rel="stylesheet" href="./css/search.css">
+
+
+    <!-- 搜索表单可以用mui的插件
+    
+    1.搜索框,右边固定宽度,左边flex:1就行了.高度给一样
+    2.边框的圆角分开赋值:border-radius:上右下左.
+    3.搜索记录可以用mui的插件:列表中带有数字角标的列表,把数字改成字体图标,
+       添加图标类名,然后删除其中的一个类名来删除小圆点的颜色
+    4.标题两端对齐让,列表的的内容左右对齐
+    5.给每个列表部分添加边框阴影
+    6.看上去边框没有居中,那个边框是伪元素,所以要把伪元素的left的值改成0
+    7.或者用卡片插件,把列表放到内容中,样式基本就不用设置了
+
+    搜索记录的添加:
+    将搜索记录放到本地存储中
+    localstorage:需要永久存储一些数据,只要用户不手动删除数据.英文直接保存,中文是乱码
+    1:它是一个js对象
+    2:可以直接在浏览器上进行修改.
+    3.获取:localstorage.属性或者localStorage.getItem('键')
+    4.常用函数:getItem('键'),setItem('键',值) removeItem('键') clear()
+    5.默认本地存储只支持基本数据类型.复杂类型的可以转换成json类型的来进行存储
+    6.如果是数组,Json.stringify(arr),将数组转换成字符串.
+    7.取json字符串的时候,先JSON.parse(),然后再取值.
+
+    写js要写入口函数.操作元素的时候尽量不要用官方类名,最好加一个自己的类名来进行操作.移动端
+    用了zepto插件后,最好用tap事件,不要使用click事件
+    使用框架式编程,一个需求写成一个函数,然后按需求调用.
+    1.添加记录:
+       点击搜索的时候添加事件
+       获取当前输入的内容
+       判断是否为空,是就提示输入,去掉前后空格.trim().提示用mui的提示框
+       输入之后添加到本地存储中,因为是连续添加,需要把数据放入数组中
+       还得获取之前的数组,有的话往之前的数组中添加,如果是null就用空数组.或运算. 
+       还得数组去重,新的内容往最前面加.push往后加.unshift往前加.遍历判断时候已经有了就删除原有了,把新的添加到后面 用splace方法.
+       (删除数组中多个重复的数值,要先删,删掉之后再i--;因为删掉之后数组的长度会变化,影响循环次数)
+       保存的时候转成json字符串
+    return和return false的区别,后者不光阻止当前函数,还可以终止外层函数的执行
+    2.查询记录
+      获取存储里面存储的数据,要把字符串转成数组
+      创建么模板
+      调用模板,但是参数2是个数组,所以要把参数2包到一个对象的属性中
+    3.调用查询数据函数
+    再开始的时候调用一次,添加完毕也得调用一次
+    4.记录太多需要滑动,所以再设置滚动    
+    
+    
+    -->
+</head>
+
+<body>
+ <!-- 导入mui的插件,可以使用轮播图,栅格布局等功能 -->
+
+ <script src="./lib/mui/js/mui.js"></script>
+ <!-- 导入zepto插件 -->
+ <script src="./lib/zepto/zepto.min.js"></script>
+ <!-- 导入模板插件 -->
+ <script src="./lib/artTemplate/template-web.js"></script>
+ <!-- //需要导入swriper -->
+ <script src="lib/swiper/js/swiper.js"></script>
+ <!-- 导入自己的js,一般都是在最后 -->
+ <script src="./js/search.js"></script>
+
+</body>
+
+</html>

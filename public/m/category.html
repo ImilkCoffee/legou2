@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 视口改成用户不可缩放 -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>乐淘分类</title>
+    <link rel="stylesheet" href="./lib/fontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./lib/mui/css/mui.css">
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./lib/swiper/css/swiper.css">
+    <link rel="stylesheet" href="./css/category.css">
+    <!-- 1.头部和底部都可以复制过来,包括部分样式
+
+修改完base里的样式后,要把作用的页面也得刷新保存一下
+
+2.头部
+   前面添加一个箭头图标
+   把h4改成form表单,里面有输入框,输入框默认有底部间距,需要修改一下
+   改变字体颜色
+   注意点击事件没生效有可能是因为其他元素层级太高,导致点击不到想要点击的事件
+
+   3.分类
+    分为左右两边,左边可以用mui的列表插件.两边的数据都不是写死的,是通过ajax发送的请求得到的
+    左右排版可以flex布局,左边固定宽度,右边flex1
+    左边线条不是边框使用伪元素做的
+
+    ajax请求:
+    使用jquery或者zepto的$.ajax发送请求
+    先引入zerto.js,文档里有一个ajax部分,docs文件夹中有个移动端接口文档,左下角有个小圆点,点一下可以看到菜单
+
+    $.ajax({
+        type:'get',可省略
+        url:'',请求的地址一定是一个完整的地址,有协议http/https;ip,端口号,路径
+        一个/表示根目录.我们的接口全部都在http://localhost:3000/接口文档中的地址
+        不能右键直接打开,要在localhost:3000的域名下才能访问我们的页面,我们已经在这个域名下了,所以可以不写了,直接用接口网址
+        dataType:'json',可省略
+        data:{name:"value"},可省略
+        success:function(data){请求成功调用的函数
+
+        },
+        error:function(err){请求成功之后调用的函数
+
+        }
+    })
+
+    使用模板引擎渲染数据
+    1,先引入模板引擎,建议使用web的
+    native.js是模板引擎的原生语法
+    -web.js可以省略遍历中的as
+    2.创建模板,一般放到引包前面
+    <script id="tol" type="text/html">
+
+    </script>
+    3.调用模板引擎,参数1是模板id,第二个参数是数据,必须是对象类型
+    var html=template('tpl',{num:10})
+    var html=template('tpl',{arr:[1,2,3,4]})
+    4.把生成的模板渲染到页面上
+
+    5.给左侧的li标签添加tap(解决了点击延迟)事件
+     添加事件:1.在生成html的时候添加,ajax请求的时候添加
+              2.事件委托添加,给父元素委托
+              父元素.on('事件类型','委托对象',事件函数)
+    6.右侧请求需要传入id,,所以在模板中添加一个自定义属性把id绑定上去
+    原生js获取自定义属性的值,var id=this.dataset['id'];获得字符串
+    data()方法:var id=$(this).data('id');获得对象
+
+    7.根据id请求右侧的数据
+
+    8.创建模板,调用模板,渲染到右侧
+    有可能会没数据,所以需要判断一下,数据长度大于0就遍历,不大于0就写死提示
+
+    9.默认初始渲染出id为1的内容
+      1.在外部请求一下id为1的内容,但是代码重复,所以可以封装一下函数
+      2
+    
+    10.给主体左侧内容添加区域滚动效果,父盒子设置相对定位,高度百分百,可以把样式放在base里面
+       不想要滚动条可以把参数去掉
+       右边也可以
+
+-->
+</head>
+
+<body>
+    <!-- 头部区域 -->
+    <header id="header">
+        <div class="left">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        </div>
+        <div class="center">
+            <form action="">
+                <input type="text" class="search" placeholder="请输入您想搜索的商品">
+            </form>
+        </div>
+        <div class="right">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </div>
+    </header>
+    <!-- 主体部分 -->
+    <main id="main">
+        <div class="left">
+            <!-- 可以用mui的插件实现列表布局 -->
+            <ul class="mui-table-view">
+
+                <li class="mui-table-view-cell">Item 1</li>
+            </ul>
+        </div>
+        <div class="right">
+            <div class="mui-row right">
+
+            </div>
+        </div>
+    </main>
+    <!-- 底部区域 -->
+    <footer id="footer">
+        <div class="mui-row">
+            <div class="mui-col-xs-3"><a href="">
+                    <i class="fa fa-home"></i>
+                    <span>首页</span>
+                </a></div>
+
+            <div class="mui-col-xs-3"><a href="" class="active">
+                    <i class="fa fa-bars"></i>
+                    <span>分类</span>
+                </a></div>
+            <div class="mui-col-xs-3"><a href="">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span>购物车</span>
+                </a></div>
+            <div class="mui-col-xs-3"><a href="">
+                    <i class="fa fa-user"></i>
+                    <span>个人中心</span>
+                </a></div>
+        </div>
+    </footer>
+    <!-- 创建模板最好在导入的插件上面 -->
+    <!-- 产品左侧的模板 -->
+    <script id="categoryLeftTol" type="text/html">
+        {{each rows value i}}
+        <li class="mui-table-view-cell" data-id="{{value.id}}">{{value.categoryName}}</li>
+{{/each}}
+        </script>
+<!-- 产品右侧的模板 -->
+<script id="categoryRiftTol" type="text/html">
+    {{each rows value i}}
+    <div class="mui-clo-xs-4">
+            <img src="{{value.brandLogo}}" alt="">
+            <span>{{value.brandName}}</span>
+        </div>
+{{/each}}
+    </script>
+    <!-- 导入mui的插件,可以使用轮播图,栅格布局等功能 -->
+    <script src="./lib/mui/js/mui.js"></script>
+    <!-- 导入zepto插件 -->
+    <script src="./lib/zepto/zepto.min.js"></script>
+    <!-- 导入模板插件,最新版本不需要加as -->
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <!-- //需要导入swriper -->
+    <script src="lib/swiper/js/swiper.js"></script>
+    <!-- 导入自己的js,一般都是在最后 -->
+    <script src="./js/category.js"></script>
+</body>
+
+</html>

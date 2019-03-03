@@ -13,32 +13,65 @@ h1,h2,h3,h4,h5,h6{
 
 }
 //头部属于公共样式,所以写在base里面
+a{
+    display: block;
+}
+img{
+    display: block;
+    width: 100%;
+}
 #header{
-    // 一行响应式布局
-    display: flex;
-    //头部所有的字体都是白色
-    color: #ffff;
+    h4{
+        font-size: 0.14rem;
+    }
+ 
+    z-index: 999;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    background-color: @main-color;
+    display:flex;
+    justify-content: center;
     .left{
-        // 左右宽高固定
         width: 0.45rem;
         height: 0.45rem;
-
     }
     .center{
-        //获得剩下的宽度
         flex:1;
-        // 文字居中
         text-align: center;
-        h4{
-            //模板里自带行高,所以需要在内部设置行高
-            line-height: 0.45rem;
-            font-weight: normal;
-        }
-        
-
     }
     .right{
-
+        line-height: 0.45rem;
+        text-align: center;
+        width: 0.45rem;
+        height: 0.45em;
     }
 }
-
+#footer{
+    z-index: 999;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    .mui-row{
+        width: 100%;
+        .mui-col-xs-3{
+            a{
+                height: 0.45rem;
+                background-color: @main-color;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color:white;
+                &.active{
+                    color:yellow; 
+                }
+            }
+            // a.active{
+            //     color:yellow;
+            // }
+            
+        }
+    }
+    
+}

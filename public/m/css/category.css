@@ -66,3 +66,50 @@ img {
 #footer .mui-row .mui-col-xs-3 a.active {
   color: yellow;
 }
+#header {
+  color: #fff;
+}
+#header .left {
+  text-align: center;
+  line-height: 0.45rem;
+}
+#header .center {
+  padding-top: 0.02rem;
+}
+#header .center input {
+  margin-bottom: 0;
+  border-radius: 0.1rem;
+}
+#main {
+  height: 100vh;
+  padding-top: 0.45rem;
+  padding-bottom: 0.45rem;
+  background-color: #eee;
+  display: flex;
+}
+#main .left {
+  width: 0.75rem;
+}
+#main .left ::after {
+  left: 0px;
+}
+#main li .active {
+  background-color: #eee;
+}
+#main .right {
+  flex: 1;
+  margin-left: 0.1rem;
+}
+#main .right .mui-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+#main .right .mui-row .mui-clo-xs-4 {
+  text-align: center;
+  margin: 0.1rem 0 ;
+  background-color: #fff;
+}
+#main .right .mui-row .mui-clo-xs-4 img {
+  width: 0.75rem;
+  height: 0.75rem;
+}

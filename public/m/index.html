@@ -19,13 +19,24 @@
         然后再书签中打开demo网页
         最后操作vscode,修改视口
 1.导入文件,如果要引入seiper,需要导入css和js,并进行初始化
-2.如果不是第一次提交,将之前的git仓库删掉或者省略新建仓库这个,直接从add开始
+2.如果不是第一次提交,将之前的git仓库删掉或者省略新建仓库git init,直接从add开始
 3.准备一个忽略清单, .gitignore 忽略掉一些我们不想提交到github的文件
 4.添加到暂存区 git add .
 5.提交到本地仓库 git commit -m"提交日志'
 6.创建一个远程仓库
 7.关联本地和远程仓库 git remote add origin 远程仓库地址(ssh地址)
 8. 把代码提交到远程仓库
+
+git操作:
+1远程仓库和本地仓库通过git remote add origin 远程仓库建立连接
+2再通过git push-u origin master
+3.接下来的提交直接 先git add  然后再git push就可以了
+4.如果删掉了本地仓库和远程仓库其中一个的时候就需要强推
+5.如果删掉了本地仓库,先git init 然后其他操作一步,关联的时候需要复制你想关联的远程仓库地址,
+git push-f origin master
+6.如果删除了远程仓库,新建一个远程仓库,然后关联,最后一步git push-f origin master
+
+
 
 结构
 1.头部,所有的a都需要转块,img的宽度都是百分百
@@ -306,7 +317,7 @@ main也是的弹簧功能也是公共样式,需要加到base里面去
     <!-- 底部区域 -->
     <footer id="footer">
         <div class="mui-row">
-                <div class="mui-col-xs-3"><a href="">
+                <div class="mui-col-xs-3"><a href="" class="active">
                         <i class="fa fa-home"></i>
                         <span>首页</span>
                     </a></div>
