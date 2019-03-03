@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 视口改成用户不可缩放 -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>自写的乐淘</title>
     <link rel="stylesheet" href="./lib/fontAwesome/css/font-awesome.css">
@@ -13,8 +14,12 @@
     <link rel="stylesheet" href="./css/index.css">
     <!-- 
         准备工作
+        打开php
+        在文件夹的根目录,按住shift+鼠标右键进入node,然后输入npm start
+        然后再书签中打开demo网页
+        最后操作vscode,修改视口
 1.导入文件,如果要引入seiper,需要导入css和js,并进行初始化
-2.将之前的git仓库删掉
+2.如果不是第一次提交,将之前的git仓库删掉或者省略新建仓库这个,直接从add开始
 3.准备一个忽略清单, .gitignore 忽略掉一些我们不想提交到github的文件
 4.添加到暂存区 git add .
 5.提交到本地仓库 git commit -m"提交日志'
@@ -52,10 +57,11 @@ span行高继承了body,只有14,把默认的span行高替换成1;
 给第一a标签给一个active的类名
 
 8.首页弹簧滑动功能
-swriper内容滚动插件:滑动更加流畅
+swriper内容滚动插件:滑动更加流畅,父100vh,内容高auto
 两个初始化代码要改一下类名,不然会冲突,或者加个关系选择器
 父元素高度固定百分百,跟main一样,子元素也就是滚动的内容要高度auto也就是内容的总高度.因为这个插件
 本来就设置了高度百分百,需要抵消掉
+mui区域滚动:main下面的最外层子元素改为relative,然后高度改为100%,内容的高度也改成100%
 
 
 
