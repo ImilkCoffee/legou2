@@ -1,0 +1,44 @@
+// 定义主体颜色
+@main-color:#006699;
+html{
+    font-size: 26.66667vw;
+}
+body{
+    font-size: 0.14rem;
+}
+// 样式不用写太多,mui基本写好了
+//去掉标题默认间距
+h1,h2,h3,h4,h5,h6{
+    margin:0;
+
+}
+//头部属于公共样式,所以写在base里面
+#header{
+    // 一行响应式布局
+    display: flex;
+    //头部所有的字体都是白色
+    color: #ffff;
+    .left{
+        // 左右宽高固定
+        width: 0.45rem;
+        height: 0.45rem;
+
+    }
+    .center{
+        //获得剩下的宽度
+        flex:1;
+        // 文字居中
+        text-align: center;
+        h4{
+            //模板里自带行高,所以需要在内部设置行高
+            line-height: 0.45rem;
+            font-weight: normal;
+        }
+        
+
+    }
+    .right{
+
+    }
+}
+

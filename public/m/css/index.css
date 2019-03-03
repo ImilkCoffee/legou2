@@ -1,0 +1,188 @@
+html {
+  font-size: 26.66667vw;
+}
+body {
+  font-size: 0.14rem;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+#header {
+  display: flex;
+  color: #ffff;
+}
+#header .left {
+  width: 0.45rem;
+  height: 0.45rem;
+}
+#header .center {
+  flex: 1;
+  text-align: center;
+}
+#header .center h4 {
+  line-height: 0.45rem;
+  font-weight: normal;
+}
+a {
+  display: block;
+}
+img {
+  display: block;
+  width: 100%;
+}
+#header {
+  z-index: 999;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  background-color: #006699;
+  display: flex;
+  justify-content: center;
+}
+#header h4 {
+  font-size: 0.14rem;
+}
+#header .left {
+  width: 0.45rem;
+  height: 0.45rem;
+}
+#header .center {
+  flex: 1;
+  text-align: center;
+}
+#header .right {
+  line-height: 0.45rem;
+  text-align: center;
+  width: 0.45rem;
+  height: 0.45em;
+}
+#main {
+  padding-top: 0.45rem;
+  padding-bottom: 0.4rem;
+  height: 100vh;
+}
+#main .swiper-container-main {
+  height: 100%;
+}
+#main .swiper-container-main .swiper-slide {
+  height: auto;
+}
+#main .swiper-container-main .swiper-slide #nav {
+  padding: 0.1rem;
+}
+#main .swiper-container-main .swiper-slide #ad {
+  padding: 0.1rem;
+  padding-top: 0.1rem;
+  display: flex;
+}
+#main .swiper-container-main .swiper-slide #ad .left {
+  height: 0.4rem;
+}
+#main .swiper-container-main .swiper-slide #ad .left img {
+  height: 1rem;
+}
+#main .swiper-container-main .swiper-slide #ad .left .top {
+  display: flex;
+}
+#main .swiper-container-main .swiper-slide #ad .left .bottom {
+  display: flex;
+}
+#main .swiper-container-main .swiper-slide #ad .right img {
+  height: 2rem;
+}
+#main .swiper-container-main .swiper-slide #brand {
+  padding: 0.1rem;
+}
+#main .swiper-container-main .swiper-slide #brand .brands {
+  display: flex;
+  flex-wrap: wrap;
+}
+#main .swiper-container-main .swiper-slide #brand .brands a {
+  width: 25%;
+}
+#main .swiper-container-main .swiper-slide #brand .brands a img {
+  height: 1rem;
+}
+#main .swiper-container-main .swiper-slide #sport {
+  padding: 0.1rem;
+}
+#main .swiper-container-main .swiper-slide #sport .product {
+  display: flex;
+}
+#main .swiper-container-main .swiper-slide #sport .product .left {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#main .swiper-container-main .swiper-slide #sport .product .left button {
+  background-color: #006699;
+}
+#main .swiper-container-main .swiper-slide #sport .product .right {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#main .swiper-container-main .swiper-slide #sport .product .right button {
+  background-color: #006699;
+}
+#main .swiper-container-main .swiper-slide .women {
+  padding: 0.1rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+}
+#main .swiper-container-main .swiper-slide .women a {
+  display: inline-block;
+  width: 25%;
+  line-height: 1;
+  margin: 0;
+}
+#main .swiper-container-main .swiper-slide .women a img {
+  height: 0.6rem;
+  width: 100%;
+}
+#main .swiper-container-main .swiper-slide .man {
+  padding: 0.1rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+}
+#main .swiper-container-main .swiper-slide .man a {
+  display: inline-block;
+  width: 25%;
+  line-height: 1;
+  margin: 0;
+}
+#main .swiper-container-main .swiper-slide .man a img {
+  height: 0.6rem;
+  width: 100%;
+}
+#footer {
+  z-index: 999;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+#footer .mui-row {
+  width: 100%;
+}
+#footer .mui-row .mui-col-xs-3 a {
+  height: 0.45rem;
+  background-color: #006699;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}

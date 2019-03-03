@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自写的乐淘</title>
+    <link rel="stylesheet" href="./lib/fontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./lib/mui/css/mui.css">
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./lib/swiper/css/swiper.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <!-- 
+        准备工作
+1.导入文件,如果要引入seiper,需要导入css和js,并进行初始化
+2.将之前的git仓库删掉
+3.准备一个忽略清单, .gitignore 忽略掉一些我们不想提交到github的文件
+4.添加到暂存区 git add .
+5.提交到本地仓库 git commit -m"提交日志'
+6.创建一个远程仓库
+7.关联本地和远程仓库 git remote add origin 远程仓库地址(ssh地址)
+8. 把代码提交到远程仓库
+
+结构
+1.头部,所有的a都需要转块,img的宽度都是百分百
+2.轮播图:去到mui找轮播图代码,实现循环需要前后各加一张图片,第一张是最后一张,最后一张是第一张
+并且多加一个类名,实现自动轮播需要初始化,它的轮播有些许延迟,小圆点跟随有点慢
+   mui的demo文档,也可以用swiper代替它,
+
+3.导航区域
+mui的栅格系统,mui-col-xs-3,同样需要先加一个行再加栅格的列
+用框架提供的类名来实现布局
+去除图片和块级元素之间的3像素
+4.广告区域
+两张图片拼接成一张,图片各是一半
+设置宽高要注意a标签需要转块,一行显示要父元素dispaly:flex;如果是行内块元素会默认有间距,所以
+如果每个元素都是50%的情况下不能放在一行显示,flex之后就不会有这个间距了
+左边图片的高度是右边的一半,可以设置死高度,高度不写死,两边的高度可能会出现问题,没有倍数关系
+
+5.品牌区
+mui的栅格系统
+栅格布局,a标签display:block ,图片100%
+
+6.运功专区
+图片是网络图片复制网址
+加逗号的是并集选择器
+
+7.页尾,底部区域
+整体高度由a标签撑开,高度和头部一样高
+span行高继承了body,只有14,把默认的span行高替换成1;
+给第一a标签给一个active的类名
+
+8.首页弹簧滑动功能
+swriper内容滚动插件:滑动更加流畅
+两个初始化代码要改一下类名,不然会冲突,或者加个关系选择器
+父元素高度固定百分百,跟main一样,子元素也就是滚动的内容要高度auto也就是内容的总高度.因为这个插件
+本来就设置了高度百分百,需要抵消掉
+
+
+
+
+mui区域滚动插件:结构复制过来,main里面的内容需要滚动,这些放到结构里面
+容器的高度是固定的.使用js的代码初始化区域滚动.自动是滚动内容脱标,定位,并且没有高度
+需要将main固定高度,定位之后并且设置了left值top值并不受padding影响.绝对定位和固定定位top:0;和bottom:0可是使高度和相对定位的父元素一样
+绝对定位能容不会撑开父元素
+所以,先给main元素加一个padding然后再加个100%,然后再设置下个子元素为相对定位(未脱标)
+,因为它原来就有绝对定位,然后设置一个高度100%(因为取消了它的top和bottom).
+main也是的弹簧功能也是公共样式,需要加到base里面去
+本来就设置了高度auto,所以不需要设置高度百分百
+
+-->
+
+</head>
+
+<body>
+    <!-- 头部区域 -->
+    <header id="header">
+        <div class="left"></div>
+        <div class="center">
+            <!-- 标题 -->
+            <h4>乐购主页</h4>
+        </div>
+        <div class="right">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </div>
+    </header>
+    
+    <!-- 主体区域 -->
+    <main id="main">
+        <!-- 轮播图区域 -->
+        <div class="swiper-container-main">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                        <section id="banner">
+                                <!-- mui的轮播图 -->
+                        
+                                <div id="slider" class="mui-slider">
+                                    <div class="mui-slider-group mui-slider-loop">
+                                        <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+                                        <div class="mui-slider-item mui-slider-item-duplicate">
+                                            <a href="#">
+                                                <img src="./images/banner1.png">
+                                            </a>
+                                        </div>
+                                        <!-- 第一张 -->
+                                        <div class="mui-slider-item">
+                                            <a href="#">
+                                                <img src="./images/banner1.png">
+                                            </a>
+                                        </div>
+                                        <!-- 第二张 -->
+                                        <div class="mui-slider-item">
+                                            <a href="#">
+                                                <img src="./images/banner2.png">
+                                            </a>
+                                        </div>
+                                        <!-- 第三张 -->
+                                        <div class="mui-slider-item">
+                                            <a href="#">
+                                                <img src="./images/banner3.png">
+                                            </a>
+                                        </div>
+                                        <!-- 第四张 -->
+                                        <div class="mui-slider-item">
+                                            <a href="#">
+                                                <img src="./images/banner4.png">
+                                            </a>
+                                        </div>
+                                        <!-- 第五张 -->
+                                        <div class="mui-slider-item">
+                                            <a href="#">
+                                                <img src="./images/banner5.png">
+                                            </a>
+                                        </div>
+                                        <!-- 第六张-->
+                                        <div class="mui-slider-item">
+                                            <a href="#">
+                                                <img src="./images/banner6.png">
+                                            </a>
+                                        </div>
+                                        <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+                                        <div class="mui-slider-item mui-slider-item-duplicate">
+                                            <a href="#">
+                                                <img src="./images/banner1.png">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="mui-slider-indicator">
+                                        <!-- 页码指示器 -->
+                                        <div class="mui-indicator mui-active"></div>
+                                        <div class="mui-indicator"></div>
+                                        <div class="mui-indicator"></div>
+                                        <div class="mui-indicator"></div>
+                                        <div class="mui-indicator"></div>
+                                        <div class="mui-indicator"></div>
+                                    </div>
+                                </div>
+                                <!-- swriper的轮播图 -->
+                                <!-- swriper的轮播图         -->
+                                <div class="swiper-container">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <a href=""><img src="./images/banner1.png" alt=""></a>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <a href=""><img src="./images/banner2.png" alt=""></a>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <a href=""><img src="./images/banner3.png" alt=""></a>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <a href=""><img src="./images/banner4.png" alt=""></a>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <a href=""><img src="./images/banner5.png" alt=""></a>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <a href=""><img src="./images/banner6.png" alt=""></a>
+                                        </div>
+                        
+                                    </div>
+                                    <!-- Add Pagination -->
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                            </section>   
+                            <!-- 导航条区域 -->
+                            <nav id="nav">
+                                <div class="mui-content">
+                                    <div class="mui-row">
+                                        <div class="mui-col-xs-4">
+                                            <a href=""><img src="./images/nav1.png" alt=""></a>
+                                        </div>
+                                        <div class="mui-col-xs-4">
+                                            <a href=""><img src="./images/nav2.png" alt=""></a>
+                                        </div>
+                                        <div class="mui-col-xs-4">
+                                            <a href=""><img src="./images/nav3.png" alt=""></a>
+                                        </div>
+                                        <div class="mui-col-xs-4">
+                                            <a href=""><img src="./images/nav4.png" alt=""></a>
+                                        </div>
+                                        <div class="mui-col-xs-4">
+                                            <a href=""><img src="./images/nav5.png" alt=""></a>
+                                        </div>
+                                        <div class="mui-col-xs-4">
+                                            <a href=""><img src="./images/nav6.png" alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </nav>
+                            <!-- 广告区域 -->
+                            <section id="ad">
+                                <div class="left mui-col-xs-8">
+                                    <div class="top">
+                                        <a href=""><img src="./images/active1.png" alt=""></a>
+                                        <a href=""><img src="./images/active2.png" alt=""></a>
+                                    </div>
+                                    <div class="bottom">
+                                        <a href=""><img src="./images/active4.png" alt=""></a>
+                                        <a href=""><img src="./images/active5.png" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="right mui-col-xs-4">
+                                    <a href=""><img src="./images/active3.png" alt=""></a>
+                                </div>
+                            </section>
+                            <!-- 品牌专区 -->
+                            <section id="brand">
+                                <div class="title">
+                                    <a href=""><img src="./images/title0.png" alt=""></a>
+                                </div>
+                                <div class="brands">
+                                    <a href=""><img src="./images/brand1.png" alt=""></a>
+                                    <a href=""><img src="./images/brand2.png" alt=""></a>
+                                    <a href=""><img src="./images/brand3.png" alt=""></a>
+                                    <a href=""><img src="./images/brand4.png" alt=""></a>
+                                    <a href=""><img src="./images/brand5.png" alt=""></a>
+                                    <a href=""><img src="./images/brand6.png" alt=""></a>
+                                    <a href=""><img src="./images/brand7.png" alt=""></a>
+                                    <a href=""><img src="./images/brand8.png" alt=""></a>
+                                </div>
+                                <!-- <a href=""><img src="./images/title1.png" alt=""></a> -->
+                            </section>
+                            <!-- 运动生活专区 -->
+                            <section id="sport">
+                                <a href=""><img src="./images/title1.png" alt=""></a>
+                                <div class="product">
+                                    <div class="left">
+                                        <img src="./images/product.jpg" alt="">
+                                        <p>adidas阿迪达斯 男式 场下休闲篮球鞋S83700</p>
+                                        <p>¥666<span></span><del>¥66</del></p>
+                                        <button>立即购买</button>
+                                    </div>
+                                    <div class="right">
+                                        <img src="./images/product.jpg" alt="">
+                                        <p>adidas阿迪达斯 男式 场下休闲篮球鞋S83700</p>
+                                        <p>¥666<span></span><del>¥66</del></p>
+                                        <button>立即购买</button>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- 女士专区 -->
+                            <section class="women">
+                                <div class="title">
+                                    <img src="./images/title2.png" alt="">
+                                </div>
+                                <div class="product">
+                                    <a href=""><img src="./images/img/0bbcc0650b5d5de436bea84ec2b512ae.gif" alt=""></a><a href=""><img src="./images/img/17b46a7930c4d39fab4507c591387b79.gif"
+                                            alt=""></a><a href=""><img src="./images/img/41e69d0b8209df0246c45ec210cca849.png" alt=""></a><a
+                                        href=""><img src="./images/img/4b5a151726e2184c9aedb2c39a7e0066.gif" alt=""></a><a href=""><img src="./images/img/4e8174d078fe1966976c51296fe4b0a5.gif"
+                                            alt=""></a><a href=""><img src="./images/img/5ec4d6b7e5cc6bb72ed9325a126e8bba.gif" alt=""></a><a
+                                        href=""><img src="./images/img/9c5548233e975d76716474bffb39fd3b.png" alt=""></a><a href=""><img src="./images/img/c1d81509136e9b2a8d751bd2e846ac31.gif"
+                                            alt=""></a>
+                                </div>
+                            </section>
+                            <!-- 男士专区 -->
+                            <section class="man">
+                                <div class="title">
+                                    <img src="./images/title3.png" alt="">
+                                </div>
+                                <div class="product">
+                                    <a href=""><img src="./images/img/0bbcc0650b5d5de436bea84ec2b512ae.gif" alt=""></a><a href=""><img src="./images/img/17b46a7930c4d39fab4507c591387b79.gif"
+                                            alt=""></a><a href=""><img src="./images/img/41e69d0b8209df0246c45ec210cca849.png" alt=""></a><a
+                                        href=""><img src="./images/img/4b5a151726e2184c9aedb2c39a7e0066.gif" alt=""></a><a href=""><img src="./images/img/4e8174d078fe1966976c51296fe4b0a5.gif"
+                                            alt=""></a><a href=""><img src="./images/img/5ec4d6b7e5cc6bb72ed9325a126e8bba.gif" alt=""></a><a
+                                        href=""><img src="./images/img/9c5548233e975d76716474bffb39fd3b.png" alt=""></a><a href=""><img src="./images/img/c1d81509136e9b2a8d751bd2e846ac31.gif"
+                                            alt=""></a>
+                                </div>
+                            </section> 
+                        </div>
+                </div>
+                <!-- Add Scroll Bar -->
+                <div class="swiper-scrollbar"></div>
+              </div>
+            
+            
+    
+    </main>
+    <!-- 底部区域 -->
+    <footer id="footer">
+        <div class="mui-row">
+                <div class="mui-col-xs-3"><a href="">
+                        <i class="fa fa-home"></i>
+                        <span>首页</span>
+                    </a></div>
+        
+                <div class="mui-col-xs-3"><a href="">
+                        <i class="fa fa-bars"></i>
+                        <span>分类</span>
+                    </a></div>
+                <div class="mui-col-xs-3"><a href="">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span>购物车</span>
+                    </a></div>
+                <div class="mui-col-xs-3"><a href="">
+                        <i class="fa fa-user"></i>
+                        <span>个人中心</span>
+                    </a></div>
+        </div>  
+    </footer>
+    <!-- 导入mui的插件,可以使用轮播图,栅格布局等功能 -->
+    <script src="./lib/mui/js/mui.js"></script>
+    <!-- 导入zepto插件 -->
+    <script src="./lib/zepto/zepto.min.js"></script>
+    <!-- 导入模板插件 -->
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <!-- //需要导入swriper -->
+    <script src="lib/swiper/js/swiper.js"></script>
+    <!-- 导入自己的js,一般都是在最后 -->
+    <script src="./js/index.js"></script>
+
+</body>
+
+</html>

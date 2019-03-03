@@ -1,0 +1,177 @@
+@import "./base.less";
+// 头部开始
+a{
+    display: block;
+}
+img{
+    display: block;
+    width: 100%;
+}
+#header{
+    h4{
+        font-size: 0.14rem;
+    }
+    
+    
+    z-index: 999;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    background-color: @main-color;
+    display:flex;
+    justify-content: center;
+    .left{
+        width: 0.45rem;
+        height: 0.45rem;
+    }
+    .center{
+        flex:1;
+        text-align: center;
+    }
+    .right{
+        line-height: 0.45rem;
+        text-align: center;
+        width: 0.45rem;
+        height: 0.45em;
+    }
+}
+#main{
+    padding-top:0.45rem;
+    padding-bottom: 0.4rem;
+    height: 100vh;
+    .swiper-container-main{
+        height: 100%;
+        .swiper-slide{
+            height: auto;
+            
+#nav{
+    padding:0.1rem;
+    }
+    #ad{
+        padding:0.1rem;
+        padding-top: 0.1rem;
+        display: flex;
+        .left{
+            height: 0.4rem;
+            img{
+                height: 1rem;
+            }
+            .top{
+                display:flex;
+            }
+            .bottom{
+                display:flex;
+            }
+        }   
+        .right{
+            img{
+                height: 2rem;
+            }
+            
+        }
+    }
+    #brand{
+        padding:0.1rem;
+        .brands{
+            display: flex;
+            flex-wrap: wrap;
+            a{
+                width: 25%;
+                img{
+                    height: 1rem;
+                }
+            }
+        }
+    }
+    #sport{
+        padding:0.1rem;
+        .product{
+            display:flex;
+            .left{
+              display:flex;
+              flex:1;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              button{
+                  background-color: @main-color;
+              }
+            }
+            .right{
+                display:flex;
+                flex:1;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                button{
+                    background-color: @main-color;
+                }
+            }
+        }
+        
+    }
+    .women{
+        padding:0.1rem;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        a{
+            // 回车键也会占位置,所以把回车键去掉
+            display: inline-block;
+            width: 25%;
+            line-height: 1;
+            margin:0;
+            
+            img{
+               height: 0.6rem;
+               width: 100%;
+            }
+        }
+    }
+    .man{
+      
+        padding:0.1rem;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        a{
+            // 回车键也会占用位置,所以把回车键去掉
+            display: inline-block;
+            width: 25%;
+            line-height: 1;
+            margin:0;
+            img{
+               height: 0.6rem;
+               width: 100%;
+            }
+        }
+    }
+        }
+    }
+    
+   
+}
+#footer{
+    z-index: 999;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    .mui-row{
+        width: 100%;
+        .mui-col-xs-3{
+            a{
+                height: 0.45rem;
+                background-color: @main-color;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color:white;
+            }
+            
+        }
+    }
+    
+}
