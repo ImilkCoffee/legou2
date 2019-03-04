@@ -40,6 +40,4 @@ $(function () {
         mousewheel: true,
       });
   
-
-
 })

@@ -14,6 +14,7 @@ h6 {
 }
 a {
   display: block;
+  color: #fff;
 }
 img {
   display: block;
@@ -30,10 +31,14 @@ img {
 }
 #header h4 {
   font-size: 0.14rem;
+  line-height: 0.45rem;
+  color: #fff;
 }
 #header .left {
   width: 0.45rem;
   height: 0.45rem;
+  line-height: 0.45rem;
+  text-align: center;
 }
 #header .center {
   flex: 1;
@@ -44,6 +49,12 @@ img {
   text-align: center;
   width: 0.45rem;
   height: 0.45em;
+}
+#main {
+  position: relative;
+  height: 100vh;
+  padding-top: 0.45rem;
+  padding-bottom: 0.45rem;
 }
 #footer {
   z-index: 999;
@@ -62,4 +73,63 @@ img {
   justify-content: center;
   align-items: center;
   color: white;
+}
+#footer .mui-row .mui-col-xs-3 a.active {
+  color: yellow;
+}
+#main {
+  width: 100%;
+}
+#main .mui-card-header {
+  padding: 0;
+}
+#main .mui-card-header form {
+  display: flex;
+  width: 100%;
+  padding: 0.05rem 0;
+}
+#main .mui-card-header form input {
+  border-radius: 0.05rem 0 0 0.05rem;
+  height: 0.35rem;
+  flex: 1;
+  margin-bottom: 0;
+  box-sizing: border-box;
+  border: 0.01rem solid #006699;
+}
+#main .mui-card-header form button {
+  border-radius: 0 0.05rem 0.05rem 0;
+  height: 0.35rem;
+  width: 0.6rem;
+  background-color: #006699;
+  color: #fff;
+  border: 0.01rem solid #006699;
+}
+#main .mui-card-content {
+  padding: 0.1rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#main .mui-card-content a {
+  color: #ccc;
+}
+#main .mui-card-footer {
+  padding: 0;
+  color: #333;
+}
+#main .mui-card-footer ::after {
+  left: 0;
+}
+#main .mui-card-footer ul {
+  width: 100%;
+}
+#main .mui-card-footer ul li {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+#main .mui-card-footer ul li i {
+  color: #ccc;
+  margin-right: 0.1rem;
 }

@@ -2,43 +2,16 @@
 // 头部开始
 a{
     display: block;
+    color: #fff;
 }
 img{
     display: block;
     width: 100%;
 }
-#header{
-    h4{
-        font-size: 0.14rem;
-    }
-    
-    
-    z-index: 999;
-    width: 100%;
-    position: fixed;
-    top: 0px;
-    background-color: @main-color;
-    display:flex;
-    justify-content: center;
-    .left{
-        width: 0.45rem;
-        height: 0.45rem;
-    }
-    .center{
-        flex:1;
-        text-align: center;
-    }
-    .right{
-        line-height: 0.45rem;
-        text-align: center;
-        width: 0.45rem;
-        height: 0.45em;
-    }
-}
 #main{
-    padding-top:0.45rem;
+    // padding-top:0.45rem;
     padding-bottom: 0.4rem;
-    height: 100vh;
+    // height: 100vh;
     .swiper-container-main{
         height: 100%;
         .swiper-slide{
@@ -152,26 +125,4 @@ img{
     }
     
    
-}
-#footer{
-    z-index: 999;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    .mui-row{
-        width: 100%;
-        .mui-col-xs-3{
-            a{
-                height: 0.45rem;
-                background-color: @main-color;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                color:white;
-            }
-            
-        }
-    }
-    
-}
+ }

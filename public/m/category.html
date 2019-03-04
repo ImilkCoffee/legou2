@@ -87,7 +87,8 @@
     <!-- 头部区域 -->
     <header id="header">
         <div class="left">
-            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            <a href="index.html"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+           
         </div>
         <div class="center">
             <form action="">
@@ -95,7 +96,8 @@
             </form>
         </div>
         <div class="right">
-            <i class="fa fa-search" aria-hidden="true"></i>
+            <a href="search1.html"><i class="fa fa-search" aria-hidden="true"></i></a>
+           
         </div>
     </header>
     <!-- 主体部分 -->
@@ -116,35 +118,39 @@
     <!-- 底部区域 -->
     <footer id="footer">
         <div class="mui-row">
-            <div class="mui-col-xs-3"><a href="">
-                    <i class="fa fa-home"></i>
-                    <span>首页</span>
-                </a></div>
+            <div class="mui-col-xs-3"><a href="index.html" >
+                <i class="fa fa-home"></i>
+                <span>首页</span>
+            </a></div>
 
-            <div class="mui-col-xs-3"><a href="" class="active">
-                    <i class="fa fa-bars"></i>
-                    <span>分类</span>
-                </a></div>
-            <div class="mui-col-xs-3"><a href="">
-                    <i class="fa fa-shopping-cart"></i>
-                    <span>购物车</span>
-                </a></div>
-            <div class="mui-col-xs-3"><a href="">
-                    <i class="fa fa-user"></i>
-                    <span>个人中心</span>
-                </a></div>
+        <div class="mui-col-xs-3"><a href="category.html" class="active">
+                <i class="fa fa-bars"></i>
+                <span>分类</span>
+            </a></div>
+        <div class="mui-col-xs-3"><a href="shoppingCar.html">
+                <i class="fa fa-shopping-cart"></i>
+                <span>购物车</span>
+            </a></div>
+        <div class="mui-col-xs-3"><a href="">
+                <i class="fa fa-user"></i>
+                <span>个人中心</span>
+            </a></div>
         </div>
     </footer>
     <!-- 创建模板最好在导入的插件上面 -->
     <!-- 产品左侧的模板 -->
     <script id="categoryLeftTol" type="text/html">
         {{each rows value i}}
+        {{if value.id==1}}
+        <li class="mui-table-view-cell active" data-id="{{value.id}}">{{value.categoryName}}</li>
+        {{else}}
         <li class="mui-table-view-cell" data-id="{{value.id}}">{{value.categoryName}}</li>
+{{/if}}
 {{/each}}
         </script>
-<!-- 产品右侧的模板 -->
-<script id="categoryRiftTol" type="text/html">
-    {{each rows value i}}
+    <!-- 产品右侧的模板 -->
+    <script id="categoryRiftTol" type="text/html">
+        {{each rows value i}}
     <div class="mui-clo-xs-4">
             <img src="{{value.brandLogo}}" alt="">
             <span>{{value.brandName}}</span>

@@ -1,6 +1,8 @@
 $(function(){
     categoryLeft();
+    // 默认获得第一个右边的内容
     categoryRight(1);
+    // 左边第一个默认被点击
     getCategoryRight();
     //产品分类请求
     function categoryLeft(){
@@ -37,7 +39,8 @@ function categoryRight(id){
        
     })
 }
-//给右边的分类委托添加点击事件
+//给左边的分类委托添加点击事件
+
 function getCategoryRight(){
     $('.mui-table-view').on('tap','li',function(){
         var id=$(this).attr('data-id');
@@ -45,5 +48,7 @@ function getCategoryRight(){
         $(this).css('background-color','#eee').siblings().css('background-color','#fff');
     })
 }
+
+
    
 })

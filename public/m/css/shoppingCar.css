@@ -77,48 +77,18 @@ img {
 #footer .mui-row .mui-col-xs-3 a.active {
   color: yellow;
 }
-#header {
-  color: #fff;
-}
-#header .left {
-  text-align: center;
-  line-height: 0.45rem;
-}
-#header .center {
-  padding-top: 0.02rem;
-}
-#header .center input {
-  margin-bottom: 0;
-  border-radius: 0.1rem;
-}
-#header a {
-  color: #fff;
-}
-#main {
-  background-color: #eee;
-  display: flex;
-}
-#main .left li.active {
-  background-color: #eee;
-  width: 0.75rem;
-}
-#main .left li.active ::after {
-  left: 0px;
-}
-#main .right {
-  flex: 1;
-  margin-left: 0.1rem;
-}
-#main .right .mui-row {
-  display: flex;
-  flex-wrap: wrap;
-}
-#main .right .mui-row .mui-clo-xs-4 {
-  text-align: center;
-  margin: 0.1rem 0 ;
+#wrapper {
+  width: 100vw;
+  height: 100vh;
   background-color: #fff;
+  position: relative;
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-#main .right .mui-row .mui-clo-xs-4 img {
-  width: 0.75rem;
-  height: 0.75rem;
+#wrapper img {
+  width: 40%;
+  height: 40%;
+  border-radius: 50%;
 }

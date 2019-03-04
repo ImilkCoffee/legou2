@@ -1,1 +1,60 @@
 @import "base.less";
+#main{
+    width: 100%;
+    .mui-card-header{
+        padding: 0;
+        form{
+            display: flex;
+            width: 100%;
+            padding: 0.05rem 0;
+            input{
+               border-radius: 0.05rem 0 0 0.05rem;
+                height: 0.35rem;
+                flex:1;
+                margin-bottom: 0;
+                box-sizing: border-box;
+                border: 0.01rem  solid @main-color;
+            } 
+            button{
+                border-radius: 0 0.05rem 0.05rem 0;
+                height: 0.35rem;
+                width: 0.6rem;
+                background-color: @main-color;
+                color:#fff;
+                border: 0.01rem  solid @main-color;
+            }
+        }
+
+    }
+    .mui-card-content{
+        padding: 0.1rem;
+        width: 100%;
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+        a{
+            color:#ccc;
+        }
+    }
+    .mui-card-footer{
+        padding: 0;
+        color:#333;
+        ::after{
+          left:0;
+        }
+        ul{
+            width: 100%;
+            li{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                i{
+                    color:#ccc;
+                    margin-right: 0.1rem;
+                    
+                }
+            }
+        }
+    }
+   
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 视口改成用户不可缩放 -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自写的乐淘</title>
+    <link rel="stylesheet" href="./lib/fontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./lib/mui/css/mui.css">
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./lib/swiper/css/swiper.css">
+    <link rel="stylesheet" href="./css/shoppingCar.css">
+    
+</head>
+
+<body>
+    <!-- 加载动画 -->
+    <div id="wrapper">
+        <img src="./images/img/4b5a151726e2184c9aedb2c39a7e0066.gif" alt="" id="load">
+    </div>
+    <!-- 头部区域 -->
+    <header id="header">
+        <div class="left">
+                <div class="left">
+                        <a href="category.html"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                       
+                    </div>
+        </div>
+        <div class="center">
+            <!-- 标题 -->
+            <h4>购物车</h4>
+        </div>
+        <div class="right">
+                <a href="#">
+                    <i  class="fa fa-refresh"></i>
+                </a> 
+        </div>
+    </header>
+    <!-- 主体区域 -->
+    <main id="main">
+            <ul class="mui-table-view">
+                    <li class="mui-table-view-cell mui-media">
+                        <a href="javascript:;">
+                            <img class="mui-media-object mui-pull-left" src="./images/product.jpg">
+                            <div class="mui-media-body">
+                                <p class='mui-ellipsis'>匡威三星标1970s converse复刻 142334c 144757c三星标黑色高帮</p>
+                            </div>
+                        </a>
+                    </li>
+            </ul>
+    </main>
+    <!-- 底部区域 -->
+    <footer id="footer">
+            <div class="mui-row">
+                    <div class="mui-col-xs-3"><a href="index.html" class="active">
+                            <i class="fa fa-home"></i>
+                            <span>首页</span>
+                        </a></div>
+            
+                    <div class="mui-col-xs-3"><a href="category.html">
+                            <i class="fa fa-bars"></i>
+                            <span>分类</span>
+                        </a></div>
+                    <div class="mui-col-xs-3"><a href="shoppingCar.html">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span>购物车</span>
+                        </a></div>
+                    <div class="mui-col-xs-3"><a href="">
+                            <i class="fa fa-user"></i>
+                            <span>个人中心</span>
+                        </a></div>
+            </div>  
+        </footer>
+        <!-- 导入mui的插件,可以使用轮播图,栅格布局等功能 -->
+        <script src="./lib/mui/js/mui.js"></script>
+        <!-- 导入zepto插件 -->
+        <script src="./lib/zepto/zepto.min.js"></script>
+        <!-- 导入模板插件 -->
+        <script src="./lib/artTemplate/template-web.js"></script>
+        <!-- //需要导入swriper -->
+        <script src="lib/swiper/js/swiper.js"></script>
+        <!-- 导入自己的js,一般都是在最后 -->
+        <script src="./js/shoppingCar.js"></script>
+    
+    </body>
+    
+    </html>
