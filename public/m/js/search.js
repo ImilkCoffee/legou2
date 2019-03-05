@@ -1,7 +1,7 @@
 $(function(){
 
 //清除所有功能
-$('.fa.fa-trash.btn-clear').click(function(){
+$('.fa.fa-trash.btn-clear').tap(function(){
     // 清空页面上的内容
     $('.mui-table-view').html("");
     //清空本地存储
@@ -12,7 +12,7 @@ $('.fa.fa-trash.btn-clear').click(function(){
 
 
 //输入框点击事件
-$('#search').click(function(){
+$('#search').tap(function(){
 //获取本地存储:localStorage.getItem("key")
 var searchHistory=localStorage.getItem("searchHistory");
 //如果本地没有,结果就是空,声明一个空数组存储搜索记录
@@ -37,17 +37,23 @@ $('.little').click(function(){
 //将获得的数组转化成json数据并存到本地数据中,
 localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
 //利用递归渲染页面并且存储本地存储
-$('#search').trigger("click");
+$('#search').trigger("tap");
 })
 }
 })
 
 
 //设置按钮点击事件
-$('.searchButton').click(function(){
+$('.searchButton').tap(function(){
     //获取输入框里面的内容
  var text=$('#search').val();
- $('#search').val('');
+ //点击搜索之后跳转到一个新页面,并带过去参数
+if(text){
+    location="productList.html?search="+text+"&time="+"这里是获取的系统时间";
+}else{
+    location="search.html";
+}
+//获取本地存储
 var searchHistory=localStorage.getItem("searchHistory");
 //如果本地有,获得的结果应该是json类型的数组
 if(searchHistory!=null){

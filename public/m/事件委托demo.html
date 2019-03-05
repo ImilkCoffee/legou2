@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    li{
+        height: 100px;
+        width: 400px;
+        border: 1px solid red;
+    }
+    span{
+       display: block;
+       height: 100px;
+       width: 100px;
+    }
+    
+    
+    </style>
+</head>
+<body>
+    <!-- 结论,事件委托可以给孙子委托 -->
+    <ul id="u">
+        <li><span id="s">点我</span></li>
+        <li><span>电器我问</span></li>
+        <li><span>点我</span></li>
+    </ul>
+    <script src="lib/zepto/zepto.min.js"></script>
+    <script>
+    $('#u').on('click','span',function(){
+        console.log(111);
+    })
+    
+    
+    </script>
+</body>
+</html>

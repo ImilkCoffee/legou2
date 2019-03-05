@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>产品搜索结果</title>
+    <link rel="stylesheet" href="./lib/fontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./lib/mui/css/mui.css">
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./lib/swiper/css/swiper.css">
+    <link rel="stylesheet" href="./css/productList.css">
+    <!-- 用卡片模板 加栅格系统
+    按钮也可以用mui的按钮模板
+    只显示两行:其他隐藏,高度固定,行高为一半,其他超出部分隐藏.或者css3中的一个属性:
+    overflow : hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp:2;
+        -webkit-box-orient: vertical;
+    
+
+    如何跳转到该页面与传参:
+    location='地址'
+    需要传参数:通过在地址后面拼接?建=值.
+    另一个页面获取参数:获取地址栏,然后截取字符串.从等号开始
+    参数可能有很多个:知道值是在那个参数上的,获取url.search(?+后面的内容)
+    把问号去掉:.sbustr(1).从下标1到末尾
+    按照&分割:.split('&'),
+    数组中的每个元素按等号分割.
+    可以用正则表达式省略循环过程
+    根据按等号分割之后的第一个元素,获取第二个元素
+    获得的中文会乱码,需要解码.默认是用encodeURI加密的,所以要用decodeURI解密.espace()加密用unespace(解密)
+    将逻辑封装成函数,以便查询不同的数据
+
+    调用接口的时候需要给两个参数,一个是page 一个是pageSize.根据商品名称传参需要再给一个参数prcName
+    图片路径在数组中的pic数组中的picAddr属性里
+    渲染的时候不能设置靠设置边框来实现分割,会导致结构问题,可以使用盒子阴影来实现
+    在产品页面也要去实现搜索功能
+
+    商品点击排序功能:
+    api接口中有价格和销量的排序
+    调用api,传入商品排序的方式和排列顺序.(1表示升序,2表示降序)
+    点击事件:
+    给按钮添加一个排序顺序属性,根据值来判断改变箭头的上下.换类名来切换图标,同时把页面中的数值改变一下
+    要给参数动态添加属性,利用
+
+    下拉刷新,上拉加载,ajax请求的时候给内部参数的++page;把html改成append追加,而不是替换
+   判断是空的时候就提示一下.
+    用mui的模板,iframe标签src属性,将一个页面嵌套在这个标签里面,.接下来prentdefailt(方法不用了)
+    官方demo里找模板会好一点,不然函数有可能会报错
+
+
+
+    -->
+
+</head>
+
+<body>
+    <!-- 头部区域 -->
+    <header id="header">
+        <div class="left">
+            <a href="category.html"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+
+        </div>
+        <div class="center">
+            <!-- 标题 -->
+            <h4>产品列表</h4>
+        </div>
+        <div class="right">
+        </div>
+        </div>
+    </header>
+    <main id="main">
+        <!-- 导入mui的插件,可以使用轮播图,栅格布局等功能 -->
+        <div class="mui-card">
+            <!--页眉，放置标题-->
+            <div class="mui-card-header">
+                <form action=""><input type="text" id="search"><button class="searchButton">搜索</button></form>
+            </div>
+            <!-- 产品显示列表头部 -->
+            <div class="mui-card">
+                    <!--页眉，放置标题-->
+                    <div class="mui-card-header product">
+                            <div class="mui-row">
+                                    <div class="mui-col-xs-3" id="time">
+                                        <span>上架时间</span>
+                                        <i class="fa fa-angle-down"></i>
+                                    </div>
+                                    <div class="mui-col-xs-3" id="pice">
+                                            <span>价格</span>
+                                            <i class="fa fa-angle-down"></i>
+                                    </div>
+                                    <div class="mui-col-xs-3" id="num">
+                                            <span>销量</span>
+                                            <i class="fa fa-angle-down"></i>
+                                    </div>
+                                    <div class="mui-col-xs-3" id="rebate">
+                                            <span>折扣</span>
+                                            <i class="fa fa-angle-down"></i>
+                                    </div>
+                                </div>
+                    </div>
+                    <!--内容区,产品列表-->
+                    <div class="mui-card-content products">
+                        <div class="mui-col-xs-6">
+                                <div class="mui-card">
+                                        <!--页眉，放置标题-->
+                                        <img src="./images/img/1e80e05185356ad1ec642591d879edd1.gif" alt="">
+                                        <!--内容区-->
+                                        <div class="mui-card-content eachproduct">
+                                            <p>想唱首情歌给你,可我声音不够沙哑;想展现我的绅士给你,可我的手上没有鲜花.所以靠近点,我给你讲个笑话,笑话的开头,你亲了我的脸颊</p>
+                                            <p>¥998<span></span>   <del>¥99.8</del></p>
+                                        <button>立即购买</button>
+                                        </div>
+                                     
+                                    </div>
+                        </div>
+                       
+                    </div>
+                
+                </div>
+           
+
+        </div>
+    </main>
+<!-- 创建一个渲染商品的页面 -->
+<script id="productsTol" type="text/html">
+{{each data value i}}
+<div class="mui-col-xs-6">
+        <div class="mui-card">
+                <!--页眉，放置标题-->
+                <img src="{{value.pic[0].picAddr}}" alt="">
+                <!--内容区-->
+                <div class="mui-card-content eachproduct">
+                    <p>{{value.proName}}</p>
+                    <p>¥{{value.price}}<span></span>   <del>¥{{value.oldPrice}}</del></p>
+                <button data-id="{{value.id}}">立即购买</button>
+                </div>
+             
+            </div>
+</div>
+{{/each}}
+</script>
+    <script src="./lib/mui/js/mui.js"></script>
+    <!-- 导入zepto插件 -->
+    <script src="./lib/zepto/zepto.min.js"></script>
+    <!-- 导入模板插件 -->
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <!-- 使用tap必须导入方法模板 -->
+    <script src="lib/zepto/touch.js"></script>
+    <!-- //需要导入swriper -->
+    <script src="lib/swiper/js/swiper.js"></script>
+    <!-- 导入自己的js,一般都是在最后 -->
+    <script src="./js/productList.js"></script>
+</body>
+
+</html>
